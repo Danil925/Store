@@ -5,7 +5,6 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>edit</th>
             <th>delete</th>
         </tr>
         </thead>
@@ -13,14 +12,14 @@
         <tr>
             @foreach($genres as  $genre)
                 <td>{{$genre->name}}</td>
-                <a href="/edit">Редактировать</a>
-                <form action="/genre/{{$genre->id}}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button>Удалить</button>
-                </form>
+                <td><form action="/genre/{{$genre->id}}" method="post">
+                        @csrf
+                        @method('delete')
+                        <button>Удалить</button>
+                    </form></td>
             @endforeach
         </tr>
         </tbody>
     </table>
+    <a href="/">Назад</a>
 @endsection
